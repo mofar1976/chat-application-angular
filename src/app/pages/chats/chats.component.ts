@@ -66,6 +66,8 @@ export class ChatsComponent implements OnInit {
       })
     });
     this.chatService.getAllUsers();
+
+    // adding the commit
   } 
 
 
