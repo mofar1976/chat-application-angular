@@ -11,11 +11,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChatRoom, Message } from '../../interfaces/models/chat-room.interface';
 
 @Component({
-  selector: 'app-chats',
-  standalone: true,
-  imports: [SearchInputComponent, CommonModule, UserChatCardComponent ,ChatBubbleComponent, ReactiveFormsModule],
-  templateUrl: './chats.component.html',
-  styleUrl: './chats.component.scss'
+    selector: 'app-chats',
+    imports: [SearchInputComponent, CommonModule, UserChatCardComponent, ChatBubbleComponent, ReactiveFormsModule],
+    templateUrl: './chats.component.html',
+    styleUrl: './chats.component.scss'
 })
 export class ChatsComponent implements OnInit {
 

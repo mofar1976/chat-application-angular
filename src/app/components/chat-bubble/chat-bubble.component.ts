@@ -3,11 +3,10 @@ import { ChatBubbleConfig } from '../../interfaces/ui-configs/chat-bubble-config
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-chat-bubble',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './chat-bubble.component.html',
-  styleUrl: './chat-bubble.component.scss'
+    selector: 'app-chat-bubble',
+    imports: [CommonModule],
+    templateUrl: './chat-bubble.component.html',
+    styleUrl: './chat-bubble.component.scss'
 })
 export class ChatBubbleComponent {
 

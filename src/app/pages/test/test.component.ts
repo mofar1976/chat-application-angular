@@ -6,11 +6,10 @@ import { UserChatCardComponent } from "../../components/user-chat-card/user-chat
 import { UserChatConfig } from '../../interfaces/ui-configs/user-chat-config.interface';
 
 @Component({
-  selector: 'app-test',
-  standalone: true,
-  imports: [ChatBubbleComponent, SearchInputComponent, UserChatCardComponent],
-  templateUrl: './test.component.html',
-  styleUrl: './test.component.scss'
+    selector: 'app-test',
+    imports: [ChatBubbleComponent, SearchInputComponent, UserChatCardComponent],
+    templateUrl: './test.component.html',
+    styleUrl: './test.component.scss'
 })
 export class TestComponent {
 

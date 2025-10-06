@@ -1,38 +1,34 @@
-<div class="login-container w-full h-full items-center pt-20 flex flex-col">
+<div class="min-h-screen flex align-items-center justify-content-center px-4" style="background:var(--surface-ground);">
+  <div class="surface-card w-24rem border-round-xl shadow-2 p-4 flex flex-column gap-4">
 
-    <h1 class="w-full text-center text-4xl font-bold text-black">Log in to your account</h1>
-
-    <span class="mt-4 mb-8 text-white">Or
-        <span class="text-customColor-rightBackground underline cursor-pointer">create a free account</span>
-    </span>
-
-
-    <div class="poll-card w-2/3 p-10 flex flex-col gap-y-6 top-higlighted-box border border-gray-200 rounded-lg 
-    shadow">
-    <div class="input-section flex flex-col gap-2">
-        <label class="text-black font-medium text-lg">Email</label>
-        <input formControlName="email" type="email" class="input" placeholder="Email">
+    <div class="flex flex-column align-items-center gap-2">
+      <div class="text-2xl font-semibold text-color text-center">Welcome Back</div>
+      <div class="text-center">
+        <span class="text-color-secondary">Don't have an account?</span>
+        <a class="ml-1" style="color:var(--primary-color);">Create today!</a>
+      </div>
     </div>
 
-    <div class="input-section flex flex-col gap-2">
-        <label class="text-black font-medium text-lg">Password</label>
-        <input formControlName="password" type="password" class="input" placeholder="Password">
-    </div>
+    <div class="flex flex-column gap-3">
+      <div class="flex flex-column gap-2">
+        <label for="email1" class="font-medium text-color">Email Address</label>
+        <input pInputText id="email1" type="text" placeholder="Email address" class="w-full" />
+      </div>
 
-    <div class="footer-section w-full flex-col gap-y-4">
-        <button class="btn w-full">Login</button>
+      <div class="flex flex-column gap-2">
+        <label for="password1" class="font-medium text-color">Password</label>
+        <input pInputText id="password1" type="password" placeholder="Password" class="w-full" />
+      </div>
 
-        <div class="w-full flex justify-center items-center before:flex-1 
-            before:h-[2px] before:bg-customColor-boxBorder after:flex-1 after:h-[2px] after:bg-customColor-boxBorder">
-                <span class="px-3 text-black">Or</span>
+      <div class="flex align-items-center justify-content-between">
+        <div class="flex align-items-center gap-2">
+          <input id="rememberme1" type="checkbox" />
+          <label for="rememberme1" class="text-color">Remember me</label>
         </div>
-
-        <button (click)="handleSignInWithGoogle()" class="btn w-full flex gap-x-2 justify-center text-customColor-dark01
-            bg-transparent border-2 border-solid border-customColor-dark01
-        "> 
-        <fa-icon [size]="'lg'" [icon]="faGoogle"></fa-icon>
-        Sign with Google</button>
-    </div>
+        <a style="color:var(--primary-color);">Forgot your password?</a>
+      </div>
     </div>
 
+    <p-button label="Sign In" icon="pi pi-user" styleClass="w-full border-round"></p-button>
+  </div>
 </div>
