@@ -81,7 +81,9 @@ export class AuthService {
   }
 
   async getUserById() {
-    const docRef = doc(this.firestore, this.USER, this.getCurrentUser().uid);
+    const current = this.getCurrentUser();
+    if (!current || !current.uid) return null;
+    const docRef = doc(this.firestore, this.USER, current.uid);
     const userDoc = await getDoc(docRef);
     return userDoc.data();
   }
@@ -120,11 +122,26 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem(this.CURENT_USER) || '{}') as User;
+    const raw = localStorage.getItem(this.CURENT_USER);
+    if (!raw) return null;
+    try {
+      const parsed = JSON.parse(raw);
+      return parsed;
+    } catch (e) {
+      return null;
+    }
   }
 
   setCurrentUser(currentUser: User) {
-    localStorage.setItem(this.CURENT_USER, JSON.stringify(currentUser));
+    // Persist only a minimal, serializable user object to avoid storing
+    // Firebase internal objects that may be frozen and later cause errors.
+    const data = {
+      uid: currentUser.uid,
+      email: currentUser.email ?? null,
+      displayName: currentUser.displayName ?? null,
+      photoURL: currentUser.photoURL ?? null,
+    };
+    localStorage.setItem(this.CURENT_USER, JSON.stringify(data));
   }
 
   async logoutUser() {

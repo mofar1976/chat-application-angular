@@ -1,7 +1,12 @@
-import type { User } from '@angular/fire/auth';
+export interface AuthUser {
+  uid: string;
+  email?: string | null;
+  displayName?: string | null;
+  photoURL?: string | null;
+}
 
 export interface AuthState {
-  user: User | null;
+  user: AuthUser | null;
   loading: boolean;
   error: string | null;
 }

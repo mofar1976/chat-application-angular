@@ -18,7 +18,16 @@ export class AuthEffects {
       ofType(AuthActions.login),
       mergeMap(({ email, password }) =>
         this.authService.signInWithEmail(email, password).then(
-          (cred) => AuthActions.loginSuccess({ user: cred.user }),
+          (cred) => {
+            const u = cred.user;
+            const user = {
+              uid: u.uid,
+              email: u.email ?? null,
+              displayName: u.displayName ?? null,
+              photoURL: u.photoURL ?? null,
+            };
+            return AuthActions.loginSuccess({ user });
+          },
           (err) =>
             AuthActions.loginFailure({ error: err?.message || 'Login failed' })
         )
@@ -31,7 +40,16 @@ export class AuthEffects {
       ofType(AuthActions.register),
       mergeMap(({ email, password, displayName }) =>
         this.authService.registerWithEmail(email, password, displayName).then(
-          (cred) => AuthActions.registerSuccess({ user: cred.user }),
+          (cred) => {
+            const u = cred.user;
+            const user = {
+              uid: u.uid,
+              email: u.email ?? null,
+              displayName: u.displayName ?? null,
+              photoURL: u.photoURL ?? null,
+            };
+            return AuthActions.registerSuccess({ user });
+          },
           (err) =>
             AuthActions.registerFailure({
               error: err?.message || 'Register failed',

@@ -10,15 +10,43 @@ export const initialState: AuthState = {
 
 export const authReducer = createReducer(
   initialState,
-  on(AuthActions.login, (state) => ({ ...state, loading: true, error: null })),
-  on(AuthActions.loginSuccess, (state, { user }) => ({ ...state, user, loading: false })),
-  on(AuthActions.loginFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  on(AuthActions.login, (state: AuthState) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(AuthActions.loginSuccess, (state: AuthState, { user }) => ({
+    ...state,
+    user,
+    loading: false,
+  })),
+  on(AuthActions.loginFailure, (state: AuthState, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
 
-  on(AuthActions.register, (state) => ({ ...state, loading: true, error: null })),
-  on(AuthActions.registerSuccess, (state, { user }) => ({ ...state, user, loading: false })),
-  on(AuthActions.registerFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  on(AuthActions.register, (state: AuthState) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(AuthActions.registerSuccess, (state: AuthState, { user }) => ({
+    ...state,
+    user,
+    loading: false,
+  })),
+  on(AuthActions.registerFailure, (state: AuthState, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
 
-  on(AuthActions.logout, (state) => ({ ...state, loading: true })),
+  on(AuthActions.logout, (state: AuthState) => ({ ...state, loading: true })),
   on(AuthActions.logoutSuccess, () => initialState),
-  on(AuthActions.logoutFailure, (state, { error }) => ({ ...state, loading: false, error }))
+  on(AuthActions.logoutFailure, (state: AuthState, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  }))
 );
