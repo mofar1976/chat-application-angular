@@ -4,11 +4,18 @@
   "LOGIN": {
     "EMAIL": "Email Address",
     "PASSWORD": "Password",
-    "SIGNIN": "Sign In"
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGNIN": "Sign In",
+    "SIGNIN_GOOGLE": "Sign In with google"
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "Create account",
     "FULL_NAME": "Full name",
-    "CREATE": "Create account"
+    "HAVE_ACCOUNT": "Already have an account?"
+  },
+  "FORM": {
+    "EMAIL": "Email Address",
+    "PASSWORD": "Password",
+    "FULLNAME": "Full Name"
   }
 }

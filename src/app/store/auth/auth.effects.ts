@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as AuthActions from './auth.actions';
 import { map, mergeMap, catchError, of, tap } from 'rxjs';
@@ -7,18 +7,17 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private actions$: Actions,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  private actions$ = inject(Actions);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  constructor() {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.login),
       mergeMap(({ email, password }) =>
         this.authService.signInWithEmail(email, password).then(
-          (cred) => {
+          (cred: any) => {
             const u = cred.user;
             const user = {
               uid: u.uid,
@@ -28,7 +27,7 @@ export class AuthEffects {
             };
             return AuthActions.loginSuccess({ user });
           },
-          (err) =>
+          (err: any) =>
             AuthActions.loginFailure({ error: err?.message || 'Login failed' })
         )
       )
@@ -40,7 +39,7 @@ export class AuthEffects {
       ofType(AuthActions.register),
       mergeMap(({ email, password, displayName }) =>
         this.authService.registerWithEmail(email, password, displayName).then(
-          (cred) => {
+          (cred: any) => {
             const u = cred.user;
             const user = {
               uid: u.uid,
@@ -50,7 +49,7 @@ export class AuthEffects {
             };
             return AuthActions.registerSuccess({ user });
           },
-          (err) =>
+          (err: any) =>
             AuthActions.registerFailure({
               error: err?.message || 'Register failed',
             })
@@ -65,7 +64,7 @@ export class AuthEffects {
       mergeMap(() =>
         this.authService.logoutUser().then(
           () => AuthActions.logoutSuccess(),
-          (err) =>
+          (err: any) =>
             AuthActions.logoutFailure({
               error: err?.message || 'Logout failed',
             })

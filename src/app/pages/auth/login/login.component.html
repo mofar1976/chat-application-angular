@@ -7,15 +7,17 @@
   >
     <div class="flex flex-column align-items-center gap-2">
       <div class="text-2xl font-semibold text-color text-center">
-        Welcome Back
+        {{ "WELCOME" | translate }}
       </div>
       <div class="text-center">
-        <span class="text-color-secondary">Don't have an account?</span>
+        <span class="text-color-secondary">{{
+          "LOGIN.NO_ACCOUNT" | translate
+        }}</span>
         <a
           class="ml-1"
           style="color: var(--primary-color)"
           routerLink="/register"
-          >Create today!</a
+          >{{ "REGISTER.CREATE_ACCOUNT" | translate }}</a
         >
       </div>
     </div>

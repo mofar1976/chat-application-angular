@@ -2,13 +2,18 @@
   "TITLE": "Chat Anwendung",
   "WELCOME": "Willkommen",
   "LOGIN": {
-    "EMAIL": "E-Mail-Adresse",
-    "PASSWORD": "Passwort",
-    "SIGNIN": "Anmelden"
+    "SIGNIN": "Anmelden",
+    "SIGNIN_GOOGLE": "Anmelden durch Google",
+    "NO_ACCOUNT": "Sie haben noch kein Konto?"
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "Konto erstellen",
     "FULL_NAME": "Vollständiger Name",
-    "CREATE": "Konto erstellen"
+    "HAVE_ACCOUNT": "Haben Sie schon Konto?"
+  },
+  "FORM": {
+    "EMAIL": "E-Mail-Adresse",
+    "PASSWORD": "Passwort",
+    "FULLNAME": "Name"
   }
 }

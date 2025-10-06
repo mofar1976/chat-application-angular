@@ -33,7 +33,9 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       theme: {
         preset: Aura,
-        options: {},
+        options: {
+          darkModeSelector: '.my-app-dark',
+        },
       },
     }),
     provideHttpClient(),

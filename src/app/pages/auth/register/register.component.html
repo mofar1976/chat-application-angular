@@ -7,12 +7,17 @@
   >
     <div class="flex flex-column align-items-center gap-2">
       <div class="text-2xl font-semibold text-color text-center">
-        Create account
+        {{ "REGISTER.CREATE_ACCOUNT" | translate }}
       </div>
       <div class="text-center">
-        <span class="text-color-secondary">Already have an account?</span>
-        <a class="ml-1" style="color: var(--primary-color)" routerLink="/login"
-          >Sign in</a
+        <span class="text-color-secondary">{{
+          "REGISTER.HAVE_ACCOUNT" | translate
+        }}</span>
+        <a
+          class="ml-1"
+          style="color: var(--primary-color)"
+          routerLink="/login"
+          >{{ "LOGIN.SIGNIN" | translate }}</a
         >
       </div>
     </div>
@@ -23,21 +28,23 @@
       class="flex flex-column gap-3"
     >
       <div class="flex flex-column gap-2">
-        <label for="displayName" class="font-medium text-color"
-          >Full name</label
-        >
+        <label for="displayName" class="font-medium text-color">{{
+          "FORM.FULLNAME" | translate
+        }}</label>
         <input
           pInputText
           id="displayName"
           formControlName="displayName"
           type="text"
-          placeholder="Full name"
+          [placeholder]="'FORM.FULLNAME' | translate"
           class="w-full"
         />
       </div>
 
       <div class="flex flex-column gap-2">
-        <label for="email" class="font-medium text-color">Email Address</label>
+        <label for="email" class="font-medium text-color">{{
+          "FORM.EMAIL" | translate
+        }}</label>
         <input
           pInputText
           id="email"
@@ -56,7 +63,9 @@
       </div>
 
       <div class="flex flex-column gap-2">
-        <label for="password" class="font-medium text-color">Password</label>
+        <label for="password" class="font-medium text-color">{{
+          "FORM.PASSWORD" | translate
+        }}</label>
         <input
           pInputText
           id="password"
@@ -75,12 +84,13 @@
       <button
         pButton
         type="submit"
-        label="Create account"
         [disabled]="loading"
         class="w-full border-round"
       >
         <span *ngIf="loading">Creating...</span>
-        <span *ngIf="!loading">Create account</span>
+        <span *ngIf="!loading">{{
+          "REGISTER.CREATE_ACCOUNT" | translate
+        }}</span>
       </button>
     </form>
   </div>

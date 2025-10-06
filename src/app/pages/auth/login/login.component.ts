@@ -23,12 +23,12 @@ export class LoginComponent {
   form: FormGroup;
   loading = false;
   error: string | null = null;
-
+  // inject Store to avoid runtime DI reflection issues
+  private store = inject(Store);
   constructor(
     private router: Router,
     private authService: AuthService,
     private fb: FormBuilder,
-    private store: Store
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
