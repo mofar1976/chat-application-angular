@@ -1,3 +1,5 @@
+# chat-application
+Building a chat application using angular and firebase
 # ChatApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
