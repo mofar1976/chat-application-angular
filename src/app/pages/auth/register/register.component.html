@@ -1,0 +1,87 @@
+<div
+  class="min-h-screen flex align-items-center justify-content-center px-4"
+  style="background: var(--surface-ground)"
+>
+  <div
+    class="surface-card w-24rem border-round-xl shadow-2 p-4 flex flex-column gap-4"
+  >
+    <div class="flex flex-column align-items-center gap-2">
+      <div class="text-2xl font-semibold text-color text-center">
+        Create account
+      </div>
+      <div class="text-center">
+        <span class="text-color-secondary">Already have an account?</span>
+        <a class="ml-1" style="color: var(--primary-color)" routerLink="/login"
+          >Sign in</a
+        >
+      </div>
+    </div>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      class="flex flex-column gap-3"
+    >
+      <div class="flex flex-column gap-2">
+        <label for="displayName" class="font-medium text-color"
+          >Full name</label
+        >
+        <input
+          pInputText
+          id="displayName"
+          formControlName="displayName"
+          type="text"
+          placeholder="Full name"
+          class="w-full"
+        />
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="email" class="font-medium text-color">Email Address</label>
+        <input
+          pInputText
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="Email address"
+          class="w-full"
+        />
+        <small
+          *ngIf="
+            form.controls['email'].touched && form.controls['email'].invalid
+          "
+          class="text-red-600"
+          >Please enter a valid email.</small
+        >
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="password" class="font-medium text-color">Password</label>
+        <input
+          pInputText
+          id="password"
+          formControlName="password"
+          type="password"
+          placeholder="Password (min 6 chars)"
+          class="w-full"
+        />
+        <small *ngIf="form.controls['password'].touched" class="text-red-600"
+          >Password must be at least 6 characters.</small
+        >
+      </div>
+
+      <div *ngIf="error" class="text-red-600">{{ error }}</div>
+
+      <button
+        pButton
+        type="submit"
+        label="Create account"
+        [disabled]="loading"
+        class="w-full border-round"
+      >
+        <span *ngIf="loading">Creating...</span>
+        <span *ngIf="!loading">Create account</span>
+      </button>
+    </form>
+  </div>
+</div>

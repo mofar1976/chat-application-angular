@@ -1,0 +1,83 @@
+<div
+  class="min-h-screen flex align-items-center justify-content-center px-4"
+  style="background: var(--surface-ground)"
+>
+  <div
+    class="surface-card w-24rem border-round-xl shadow-2 p-4 flex flex-column gap-4"
+  >
+    <div class="flex flex-column align-items-center gap-2">
+      <div class="text-2xl font-semibold text-color text-center">
+        Welcome Back
+      </div>
+      <div class="text-center">
+        <span class="text-color-secondary">Don't have an account?</span>
+        <a
+          class="ml-1"
+          style="color: var(--primary-color)"
+          routerLink="/register"
+          >Create today!</a
+        >
+      </div>
+    </div>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      class="flex flex-column gap-3"
+    >
+      <div class="flex flex-column gap-2">
+        <label for="email1" class="font-medium text-color">{{
+          "LOGIN.EMAIL" | translate
+        }}</label>
+        <input
+          pInputText
+          id="email1"
+          formControlName="email"
+          type="email"
+          [placeholder]="'LOGIN.EMAIL' | translate"
+          class="w-full"
+        />
+        <small
+          *ngIf="
+            form.controls['email'].touched && form.controls['email'].invalid
+          "
+          class="text-red-600"
+          >{{ "LOGIN.INVALID_EMAIL" | translate }}</small
+        >
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="password1" class="font-medium text-color">{{
+          "LOGIN.PASSWORD" | translate
+        }}</label>
+        <input
+          pInputText
+          id="password1"
+          formControlName="password"
+          type="password"
+          [placeholder]="'LOGIN.PASSWORD' | translate"
+          class="w-full"
+        />
+      </div>
+
+      <div *ngIf="error" class="text-red-600">{{ error }}</div>
+
+      <button
+        pButton
+        type="submit"
+        class="w-full border-round"
+        [disabled]="loading"
+      >
+        <span *ngIf="loading">{{ "LOGIN.SIGNIN" | translate }}...</span>
+        <span *ngIf="!loading">{{ "LOGIN.SIGNIN" | translate }}</span>
+      </button>
+
+      <p-button
+        [label]="'LOGIN.SIGNIN_GOOGLE' | translate"
+        icon="pi pi-google"
+        styleClass="w-full border-round"
+        (onClick)="handleSignInWithGoogle()"
+      ></p-button>
+    </form>
+  </div>
+</div>

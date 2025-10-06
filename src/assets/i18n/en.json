@@ -1,0 +1,14 @@
+{
+  "TITLE": "Chat Application",
+  "WELCOME": "Welcome",
+  "LOGIN": {
+    "EMAIL": "Email Address",
+    "PASSWORD": "Password",
+    "SIGNIN": "Sign In"
+  },
+  "REGISTER": {
+    "CREATE_ACCOUNT": "Create account",
+    "FULL_NAME": "Full name",
+    "CREATE": "Create account"
+  }
+}
