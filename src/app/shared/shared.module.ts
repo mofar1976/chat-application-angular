@@ -8,6 +8,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { AvatarModule } from 'primeng/avatar';
+
 
 @NgModule({
   declarations: [],
@@ -30,6 +32,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     FormsModule,
     TranslateModule,
     SelectButtonModule,
+    AvatarModule
   ],
 })
 export class SharedModule {}

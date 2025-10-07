@@ -1,14 +1,14 @@
-
-<div [ngClass]="{'rounded-bl-none': config.position ==='left',
-    'right-bubble': config.position =='right',
+<div
+  [ngClass]="{
+    'rounded-bl-none': config.position === 'left',
+    'right-bubble': config.position == 'right',
     'rounded-br-none': config.position === 'right',
     'justify-start': config.position == 'left',
     'justify-end': config.position === 'right',
     'mr-auto': config.position === 'left',
     'ml-auto': config.position === 'right'
-}"
-
-
-class="chatbubble-container p-5 rounded-3xl rounded-br-none max-w-[70%] bg-white w-fit flex">
-    {{config.text}}
+  }"
+  class="border-round-sm p-3 max-w-[70%] bg-black-alpha-60 text-white w-fit flex"
+>
+  {{ config.text }}
 </div>

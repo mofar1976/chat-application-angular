@@ -10,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [CommonModule, ButtonModule, TranslateModule, SharedModule],
   template: `
     <div
-      class="  p-ai-center p-p-3 border-bottom surface-50 flex flex-row justify-content-start align-items-center"
+      class=" p-ai-center p-p-3 border-bottom surface-50 flex flex-row justify-content-start align-items-center"
     >
       <div class="p-text-bold">{{ 'TITLE' | translate }}</div>
       <div>

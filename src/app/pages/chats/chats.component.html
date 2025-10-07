@@ -1,7 +1,6 @@
-<div class="flex min-h-screen">
-  <!-- Left: Users / Chats list -->
+<div class="flex h-auto">
   <aside
-    class="w-1/4 h-screen bg-customColor-sideBackground p-4 flex flex-column gap-4"
+    class="w-1/4 max-h-screen bg-customColor-sideBackground p-4 flex flex-column gap-4"
   >
     <div class="search-filter-container">
       <app-search-input (search)="handleSearch($event)"></app-search-input>
@@ -15,29 +14,30 @@
       </ng-container>
     </div>
 
-    <button
+    <p-button
       pButton
       type="button"
       label="Log out"
-      class="p-button-danger w-full"
+      severity="danger"
+      class="p-button-danger w-full border-round-sm text-center"
       (click)="authService.logoutUser()"
-    ></button>
+    ></p-button>
   </aside>
 
   <!-- Right: Chat detail -->
   <section class="flex-1 flex flex-column bg-customColor-greyish">
     <ng-container *ngIf="senderUser; else emptyState">
       <header class="p-d-flex p-ai-center p-p-3 gap-3 border-bottom">
-        <img
-          [src]="senderUser.profile"
-          alt="sender profile"
-          class="w-3rem h-3rem rounded-full"
-        />
-        <div class="flex flex-column">
+        <div class="flex flex-row justify-content-start align-items-center">
+          <p-avatar
+            [image]="senderUser.profile"
+            class="mr-2"
+            size="large"
+            shape="circle"
+          />
           <span *ngIf="senderUser.fullName" class="font-bold text-xl">{{
             senderUser.fullName
           }}</span>
-          <small class="text-color-secondary">{{ senderUser.userId }}</small>
         </div>
       </header>
 

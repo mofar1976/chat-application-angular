@@ -10,6 +10,7 @@ import { ChatBubbleConfig } from '../../interfaces/ui-configs/chat-bubble-config
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChatRoom, Message } from '../../interfaces/models/chat-room.interface';
 import { AuthService } from '../../services/auth/auth.service';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-chats',
@@ -19,7 +20,8 @@ import { AuthService } from '../../services/auth/auth.service';
     UserChatCardComponent,
     ChatBubbleComponent,
     ReactiveFormsModule,
-  ],
+    SharedModule
+],
   templateUrl: './chats.component.html',
   styleUrl: './chats.component.scss',
 })

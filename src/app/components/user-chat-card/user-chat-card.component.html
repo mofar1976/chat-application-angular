@@ -1,25 +1,27 @@
-@if(config) {
-    <div class="user-chat-container cursor-pointer flex w-full gap-x-[14px] items-center p-3 
-    rounded-lg h-full"
-    [ngClass]="{isActive: config.isActive}"
-    (click)="config?.onClick()"
-    >
-    <img  default="https://t3.ftcdn.net/jpg/07/95/95/14/360_F_795951406_h17eywwIo36DU2L8jXtsUcEXqPeScBUq.jpg" class="image w-[50px] h-[50px]" 
-    [src]="config.profile" alt=""  />
-    <div class="content-section flex flex-1 flex-col gap-y-2 h-full">
-        @if(config.fullName) {
-            <span class="font-bold text-sm text-customColor-dark01">{{config.fullName}}</span>
+<ng-container *ngIf="config">
+  <div
+    class="user-chat-container cursor-pointer flex w-full gap-x-[14px] items-center p-3 rounded-lg h-full"
+    [ngClass]="{ isActive: config.isActive }"
+    (click)="config.onClick?.()"
+  >
+    <div class="flex flex-row justify-content-start align-items-center">
+      <p-avatar
+        [image]="config.profile"
+        class="mr-2"
+        size="large"
+        shape="circle"
+      />
+      <div class="flex flex-column gap-1">
+        <span *ngIf="config.fullName" class="text-sm text-customColor-dark01">{{
+          config.fullName
+        }}</span>
 
-        }
-
-        @if(config.text) {
-            <span class="text-sm text-customColor-dark01">{{config.text}}</span>
-            
-        }
-
+        <ng-container *ngIf="config.text as txt">
+          <span class="text-sm text-customColor-dark01">{{
+            txt.length > 5 ? (txt | slice : 0 : 5) + "..." : txt
+          }}</span>
+        </ng-container>
+      </div>
     </div>
-    @if(config.time){
-        <span class="time-section text-sm text-customColor-timeColor">{{config.time}}</span>
-    } 
-</div>
-}
+  </div>
+</ng-container>
